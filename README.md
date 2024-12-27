@@ -1,1 +1,1 @@
-# Ai Study Material Generator is made using Next , Shadcn , Clerk for authenticatiion , Neondb for serverless postgres and drizzle orm for database
+#Next.js Full Stack AI LMS SaaS App using the latest technologies! Learn how to integrate React, Tailwind CSS, Stripe for payments, Inngest for serverless functions, Neon for the database, Clerk for authentication, and Gemini AI for advanced AI functionalities. Perfect for developers looking to create scalable SaaS applications. 💻✨
