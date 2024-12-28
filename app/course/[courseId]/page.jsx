@@ -22,13 +22,13 @@ function CoursePage() {
 
   return (
     <div className="min-h-screen">
-      <DashboardHeader />
+      <DashboardHeader/>
       {/* Course Intro */}
       <div className="mx-10 md:mx-36 lg:px-60 mt-10 min-h-screen flex flex-col">
         <CourseIntroCard course={course} />
       </div>
       <div className="container flex items-center justify-center">
-        <StudyMaterialSection />
+        <StudyMaterialSection courseId={courseId} />
       </div>
       <div className="lg:px-60 nd:mx-36 mx-10 relative bottom-[23rem] ">
         <ChapterList course={course} />
