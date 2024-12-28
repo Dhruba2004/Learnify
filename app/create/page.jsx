@@ -8,9 +8,14 @@ import uuid4 from "uuid4";
 import { useUser } from "@clerk/nextjs";
 import { Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
+import Dashboard from "../(routes)/dashboard/page";
+import DashboardHeader from "../(routes)/dashboard/_components/DashboardHeader";
 
 function Create() {
-  // const [loading, setLoading] = useState(false);
+  const router = useRouter();
+
+  const [loading, setLoading] = useState(false);
   const { user } = useUser();
   const [formData, setFormData] = useState([]);
 
@@ -33,16 +38,18 @@ function Create() {
       });
       toast.success("Course Outline Generated Successfully");
       setLoading(false);
+      router.replace("/dashboard");
       console.log(result);
-      
     } catch (error) {
-      toast.error("Error Occured while generating course outline")
+      toast.error("Error Occured while generating course outline");
       console.log(error);
     }
   };
   const [step, setStep] = useState(0);
   return (
-    <div className="flex flex-col items-center p-5 md:px-24 lg:px-36 mt-20">
+    <div>
+      <DashboardHeader/>
+      <div className="flex flex-col items-center p-5 md:px-24 lg:px-36 mt-20">
       <h2 className="font-bold text-primary text-4xl">
         Start Building Your Personal Study Material
       </h2>
@@ -74,18 +81,25 @@ function Create() {
             Previous
           </Button>
         ) : (
-          "-"
+          <Button variant="outline">Previous</Button>
         )}
         {step == 0 ? (
-          <Button className="text-white" onClick={() => setStep(step + 1)}>Next</Button>
+          <Button className="text-white" onClick={() => setStep(step + 1)}>
+            Next
+          </Button>
         ) : (
-          <Button onClick={generateCourseOutline} className="flex items-center text-white">
-            Generate
-            {loading && <Loader2 className="animate-spin" />}
+          <Button
+            onClick={generateCourseOutline}
+            className="flex items-center text-white"
+          >
+            {loading ? <Loader2 className="animate-spin" /> : "Generate"}
           </Button>
         )}
       </div>
     </div>
+
+    </div>
+    
   );
 }
 

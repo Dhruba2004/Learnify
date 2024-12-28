@@ -28,7 +28,7 @@ function Sidebar() {
     },
   ];
   return (
-    <div className="p-5 shadow-md h-screen border-r">
+    <div className="p-5 shadow-md h-screen border-r bg-slate-950">
       <div className="flex items-center gap-3">
         <Image src={"/logo.svg"} width={40} height={40} alt="logo" />
         <h2 className="font-bold text-lg text-white">Easy Study</h2>

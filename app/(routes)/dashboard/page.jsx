@@ -4,7 +4,7 @@ import CourseList from './_components/CourseList'
 
 function Dashboard() {
   return (
-    <div className='h-screen'>
+    <div className='min-h-screen'>
         <WelcomeBanner/>
         <CourseList/>
     </div>

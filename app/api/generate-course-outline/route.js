@@ -1,4 +1,5 @@
-import { courseOutline } from "@/configs/AiModel";
+import { inngest } from "@/app/inngest/client";
+import { courseOutlineAIModel } from "@/configs/AiModel";
 import { db } from "@/configs/db";
 import { STUDY_MATERIAL_TABLE } from "@/configs/schema";
 import { NextResponse } from "next/server";
@@ -22,9 +23,9 @@ export async function POST(req) {
       courseType +
       " and difficulty level will be " +
       difficultyLevel +
-      " with the summary of course , List of chapters along with summary for each chapter , Topic list in each chapter in JSON format";
+      " with the summary of course , List of chapters along with summary and Emoji icon for each chapter , Topic list in each chapter in JSON format";
 
-    const aiResp = await courseOutline.sendMessage(PROMPT);
+    const aiResp = await courseOutlineAIModel.sendMessage(PROMPT);
     const aiResult = JSON.parse(aiResp.response.text());
     
     const dbResult = await db
@@ -38,9 +39,19 @@ export async function POST(req) {
         status,
         courseLayout: aiResult,
       })
-      .returning();
+      .returning({resp:STUDY_MATERIAL_TABLE});
+    // Trigger the inngest function to generate chapter notes
+    const result = await inngest.send({
+      name:"notes.generate",
+      data:{
+        course:dbResult[0].resp
 
-    return NextResponse.json({ result: dbResult });
+      }
+
+    }) 
+    console.log(result)
+
+    return NextResponse.json({ result: dbResult[0] });
     
   } catch (error) {
     console.error("Error:", error);
