@@ -7,7 +7,7 @@ import React from "react";
 
 function CourseCardItem({ course }) {
   return (
-    <div className="border p-4 cursor-pointer shadow-md rounded-lg hover:scale-105 transition-all ease-in-out duration-300">
+    <div className="border bg-slate-950 p-4 cursor-pointer shadow-lg rounded-lg hover:scale-105 transition-all ease-in-out duration-300">
       <div>
         <div className="flex justify-between items-center">
           <Image src={"/knowledge.png"} alt="other" height={50} width={50} />

@@ -1,14 +1,20 @@
 "use client"
+import { CourseCountContext } from "@/app/_context/CourseCountContext";
 import { Button } from "@/app/components/ui/button";
 import { Progress } from "@/app/components/ui/progress";
 import { LayoutDashboard, Shield, UserCircle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import React from "react";
+import { usePathname,useRouter } from "next/navigation";
+import React, { useContext } from "react";
 
 function Sidebar() {
+   const {totalCourse,setTotalCourse} = useContext(CourseCountContext)
+   const router = useRouter()
     const path = usePathname()
+if(totalCourse >= 10 ){
+  router.push('/dashboard/billing')
+}
   const menuList = [
     {
       name: "Dashboard",
@@ -16,9 +22,9 @@ function Sidebar() {
       path: "/dashboard",
     },
     {
-      name: "Upgrade",
+      name: "Billing",
       icon: Shield,
-      path: "/dashboard/upgrade",
+      path: "/dashboard/billing",
     },
 
     {
@@ -45,9 +51,9 @@ function Sidebar() {
         </div>
       </div>
       <div className="p-5 bg-slate-950 rounded-lg mt-5 absolute bottom-10 border w-[87%]">
-        <h2 className="text-lg mb-2 text-white">Available Credits : 5</h2>
-        <Progress value={30} />
-        <h2 className="text-sm mt-2">1 Out of 5 Credit Used</h2>
+        <h2 className="text-lg mb-2 text-white">Available Credits : {10-totalCourse} </h2>
+        <Progress value={(totalCourse/10)*100} />
+        <h2 className="text-sm mt-2">{totalCourse} Out of 10 Credit Used</h2>
         <Link href={'/dashboard/upgrade'} className="text-xs text-[#5242ef]">Upgrade to create more</Link>
 
 

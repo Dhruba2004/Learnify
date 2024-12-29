@@ -13,6 +13,7 @@ import {
 import FlashCardItem from "./FlashCardItem";
 
 function Flashcard() {
+  const [api,setApi] = useState();
   const [flashcards, setFlashcards] = useState([]);
   const [isFlipped, setIsFlipped] = useState();
   const { courseId } = useParams();
@@ -20,6 +21,16 @@ function Flashcard() {
   useEffect(() => {
     GetFlashCards();
   }, []);
+
+  useEffect(()=>{
+    if(!api){
+      return ;
+    }
+    api.on("select",()=>{
+      setIsFlipped(false);
+    })
+  },[api])
+
   const handleClick = () => {
     setIsFlipped(!isFlipped);
   };
@@ -37,7 +48,7 @@ function Flashcard() {
       <h2 className="font-bold text-2xl">Flashcards</h2>
       <p>Flashcards : The Ultimate To Lock in concepts</p>
       <div className="flex justify-center items-center mt-10">
-        <Carousel className="max-w-[800px]">
+        <Carousel className="max-w-[800px]" setApi={setApi}>
           <CarouselContent>
             {flashcards[0]?.content && flashcards[0]?.content?.map((flashcard, index) => (
                 <CarouselItem
