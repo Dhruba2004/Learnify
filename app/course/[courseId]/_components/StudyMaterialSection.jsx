@@ -3,7 +3,7 @@ import MaterialCardItem from "./MaterialCardItem";
 import axios from "axios";
 import Link from "next/link";
 
-function StudyMaterialSection({ courseId }) {
+function StudyMaterialSection({ courseId,course }) {
   const [studyTypeContent, setStudyTypeContent] = useState();
   useEffect(() => {
     GetStudyMaterial();
@@ -22,7 +22,7 @@ function StudyMaterialSection({ courseId }) {
       desc: "Flashcard help to remember the concepts",
       icon: "/flashcard.png",
       path: "/flashcards",
-      type: "flashcards",
+      type: "flashcard",
     },
     {
       name: "Quiz",
@@ -58,13 +58,14 @@ function StudyMaterialSection({ courseId }) {
       </h2>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mt-[4rem]">
         {MaterialList.map((item, index) => (
-          <Link key={index} href={'/course/'+courseId + item.path}>
+          
             <MaterialCardItem
               item={item}
               key={index}
               studyTypeContent={studyTypeContent}
+              course={course}
+              refreshData={GetStudyMaterial}
             />
-          </Link>
         ))}
       </div>
     </div>

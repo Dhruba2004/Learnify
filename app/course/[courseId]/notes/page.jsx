@@ -1,5 +1,4 @@
 "use client";
-import ReactMarkdown from "react-markdown";
 
 import { Button } from "@/app/components/ui/button";
 import axios from "axios";
@@ -76,8 +75,8 @@ function ViewNotes() {
 
         </div>
 
-        <div>
-          <div className="prose prose-lg text-white max-w-none border p-10 mt-4 rounded-lg shadow-lg" dangerouslySetInnerHTML={{ __html: notes[stepCount] }} />
+        <div className="mt-10">
+          <div className="prose prose-lg text-white max-w-none border p-10 rounded-lg shadow-lg" dangerouslySetInnerHTML={{ __html: notes[stepCount] }} />
         </div>
       </div>
     )

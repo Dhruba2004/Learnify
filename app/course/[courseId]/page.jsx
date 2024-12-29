@@ -28,7 +28,7 @@ function CoursePage() {
         <CourseIntroCard course={course} />
       </div>
       <div className="container flex items-center justify-center">
-        <StudyMaterialSection courseId={courseId} />
+        <StudyMaterialSection courseId={courseId} course={course} />
       </div>
       <div className="lg:px-60 nd:mx-36 mx-10 relative bottom-[23rem] ">
         <ChapterList course={course} />

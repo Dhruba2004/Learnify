@@ -55,3 +55,39 @@ const {
       ],
     });
     
+    export const generateFlashcardAIModel = model.startChat({
+      generationConfig,
+      history: [
+        {
+          role: "user",
+          parts: [
+            {text: "Generate the flashcard on topic : Flutter Fundamentals,User Interface (UI) Development,Basic App Navigation in JSON format with front back content, Maximum 15\n\n"},
+          ],
+        },
+        {
+          role: "model",
+          parts: [
+            {text: "```json\n[\n  {\n    \"front\": \"What is a Widget in Flutter?\",\n    \"back\": \"The fundamental building block of a Flutter UI. Everything visible on the screen is a widget.\"\n  },\n  {\n    \"front\": \"What are the two main types of widgets?\",\n    \"back\": \"StatelessWidget and StatefulWidget.\"\n  },\n  {\n    \"front\": \"When to use a StatelessWidget?\",\n    \"back\": \"When the widget's appearance doesn't change in response to user interaction or time.\"\n  },\n  {\n    \"front\": \"When to use a StatefulWidget?\",\n    \"back\": \"When the widget's appearance needs to change dynamically.\"\n  },\n  {\n    \"front\": \"Explain the role of `build()` method.\",\n    \"back\": \"The method in a widget that describes the widget's UI. It's called whenever the widget needs to be redrawn.\"\n  },\n  {\n    \"front\": \"What is a `BuildContext`?\",\n    \"back\": \"An object that provides information about the widget's location in the widget tree.\"\n  },\n  {\n    \"front\": \"Name three common layout widgets.\",\n    \"back\": \"Row, Column, Stack\"\n  },\n  {\n    \"front\": \"What does `Scaffold` provide?\",\n    \"back\": \"A basic visual layout structure for an app, including app bar, body, and floating action button.\"\n  },\n  {\n    \"front\": \"How to navigate to a new screen using Navigator?\",\n    \"back\": \"Use `Navigator.push(context, MaterialPageRoute(builder: (context) => NewScreen()));`\"\n  },\n  {\n    \"front\": \"How to pop a screen from the navigation stack?\",\n    \"back\": \"Use `Navigator.pop(context);`\"\n  },\n  {\n    \"front\": \"What is a Route in Flutter Navigation?\",\n    \"back\": \"A description of a screen, typically a MaterialPageRoute.\"\n  },\n  {\n    \"front\": \"What's the difference between `push` and `pushReplacementNamed`?\",\n    \"back\": \"`push` adds a new route; `pushReplacementNamed` replaces the current route.\"\n  },\n  {\n    \"front\": \"How to pass data to a new screen during navigation?\",\n    \"back\": \"Using arguments in the `MaterialPageRoute`'s `builder` or using named routes and passing data via arguments.\"\n  },\n  {\n    \"front\": \"What is a `MaterialApp`?\",\n    \"back\": \"A widget that provides a Material Design theme and manages the app's navigation.\"\n  },\n  {\n    \"front\": \"What is the purpose of `Key` in widgets?\",\n    \"back\": \"Helps Flutter identify and manage widgets, especially useful for preserving state across rebuilds.\"\n  }\n]\n```\n"},
+          ],
+        },
+      ],
+    });
+
+    export const generateQuizAiModel = model.startChat({
+      generationConfig,
+      history: [
+        {
+          role: "user",
+          parts: [
+            {text: "Generate Quiz on topic : Flutter fundamentals , User Interface (UI) development,Basic App Navigation with Question and Options along with correct answer in JSON format, (Max 10)\n"},
+          ],
+        },
+        {
+          role: "model",
+          parts: [
+            {text: "```json\n[\n  {\n    \"question\": \"What is the primary function of a StatelessWidget in Flutter?\",\n    \"options\": [\n      \"To manage state and rebuild the UI when data changes\",\n      \"To define UI elements that do not change dynamically\",\n      \"To handle user input and gestures\",\n      \"To manage animations and transitions\"\n    ],\n    \"correctAnswer\": \"To define UI elements that do not change dynamically\"\n  },\n  {\n    \"question\": \"Which widget is commonly used as the root of a Flutter app?\",\n    \"options\": [\n      \"Scaffold\",\n      \"MaterialApp\",\n      \"Container\",\n      \"Column\"\n    ],\n    \"correctAnswer\": \"MaterialApp\"\n  },\n  {\n    \"question\": \"What is the purpose of the 'pubspec.yaml' file in a Flutter project?\",\n    \"options\": [\n      \"To define the app's UI layout\",\n      \"To manage project dependencies and configurations\",\n      \"To store app data and user preferences\",\n      \"To write Dart code for the app's logic\"\n    ],\n    \"correctAnswer\": \"To manage project dependencies and configurations\"\n  },\n  {\n    \"question\": \"Which widget is used for displaying a list of items in Flutter?\",\n    \"options\": [\n      \"Row\",\n      \"Column\",\n      \"ListView\",\n      \"GridView\"\n    ],\n    \"correctAnswer\": \"ListView\"\n  },\n  {\n    \"question\": \"How do you navigate to a new screen in Flutter using Navigator?\",\n    \"options\": [\n      \"Navigator.go()\",\n      \"Navigator.pop()\",\n      \"Navigator.push()\",\n      \"Navigator.replace()\"\n    ],\n    \"correctAnswer\": \"Navigator.push()\"\n  },\n  {\n    \"question\": \"What is the function of the 'build' method in a StatefulWidget?\",\n    \"options\": [\n      \"To initialize the widget's state\",\n      \"To describe the UI of the widget\",\n      \"To handle user interactions\",\n      \"To dispose of the widget's resources\"\n    ],\n    \"correctAnswer\": \"To describe the UI of the widget\"\n  },\n  {\n    \"question\": \"Which widget is used for displaying images in Flutter?\",\n    \"options\": [\n      \"Image\",\n      \"Icon\",\n      \"Picture\",\n      \"ImageIcon\"\n    ],\n    \"correctAnswer\": \"Image\"\n  },\n  {\n    \"question\": \"What is a 'key' used for in Flutter widgets?\",\n    \"options\": [\n      \"To uniquely identify a widget in the widget tree\",\n      \"To style the widget's appearance\",\n      \"To animate the widget\",\n      \"To handle user input on the widget\"\n    ],\n    \"correctAnswer\": \"To uniquely identify a widget in the widget tree\"\n  },\n  {\n    \"question\": \"What is the purpose of the 'setState' method in a StatefulWidget?\",\n    \"options\": [\n      \"To rebuild the UI when the widget's state changes\",\n      \"To initialize the widget's state\",\n      \"To handle user interactions\",\n      \"To navigate to a new screen\"\n    ],\n    \"correctAnswer\": \"To rebuild the UI when the widget's state changes\"\n  },\n   {\n    \"question\": \"Which layout widget allows you to arrange its children in a horizontal sequence?\",\n    \"options\": [\n      \"Column\",\n      \"Row\",\n      \"Stack\",\n      \"ListView\"\n    ],\n    \"correctAnswer\": \"Row\"\n  }\n]\n```"},
+          ],
+        },
+      ],
+    });
+  

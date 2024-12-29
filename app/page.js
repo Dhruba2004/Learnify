@@ -11,11 +11,6 @@ import {
 } from "./components/ui/card";
 import { Book, Brain, Gamepad,Bot,Loader } from "lucide-react";
 
-export const metadata = {
-  icons: {
-    icon: "/logo.svg",
-  },
-};
 
 export default function Home() {
   const features = [
