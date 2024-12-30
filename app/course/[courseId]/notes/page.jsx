@@ -16,7 +16,6 @@ function ViewNotes() {
   }, []);
 
   const GetNotes = async () => {
-    try {
       const result = await axios.post("/api/study-type", {
         courseId,
         studyType: "notes",
@@ -26,15 +25,17 @@ function ViewNotes() {
   
       // Parse the notes field from each object
       const formattedNotes = result?.data?.map((note) => {
-        const parsedNotes = JSON.parse(note?.notes || "{}"); // Safely parse JSON
-        return parsedNotes?.content; // Extract the content property
-      }) || [];
+        try {
+          const parsedNotes = JSON.parse(note?.notes || "{}"); // Safely parse JSON
+          return parsedNotes?.content; // Extract the content property
+        } catch (error) {
+          console.error("Error parsing JSON:", error);
+          return null; // Return null if parsing fails
+        }
+      }).filter(content => content !== null) || [];
   
       console.log("Formatted Notes:", formattedNotes);
       setNotes(formattedNotes);
-    } catch (error) {
-      console.error("Error fetching notes:", error);
-    }
   };
   
 
@@ -59,7 +60,7 @@ function ViewNotes() {
               Previous
             </Button>
           )}
-          {notes.map((_, index) => (
+          {notes?.map((_, index) => (
             <div
               key={index}
               className={`w-full h-2 rounded-full ${
