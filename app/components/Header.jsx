@@ -10,7 +10,7 @@ import Link from "next/link";
 export default function Header() {
   return (
   
-      <div className="flex items-center justify-between shadow-md p-4 container border-b">
+      <div className="flex items-center justify-between shadow-md p-4 container border-b bg-slate-900">
         <div>
           <Image src="/logo.svg" width={30} height={30} alt="logo" />
         </div>
@@ -23,7 +23,7 @@ export default function Header() {
           </SignedIn>
           <SignedOut>
             <SignInButton>
-              <Button>Sign In</Button>
+              <Button className="text-white">Sign In</Button>
             </SignInButton>
           </SignedOut>
         </div>
