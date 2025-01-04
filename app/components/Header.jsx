@@ -10,7 +10,7 @@ import Link from "next/link";
 export default function Header() {
   return (
   
-      <div className="flex items-center justify-between shadow-md p-4 container border-b bg-slate-900">
+      <div className="flex items-center justify-between shadow-md p-4 container w-full max-w-[100vw] border-b bg-slate-900">
         <div>
           <Image src="/logo.svg" width={30} height={30} alt="logo" />
         </div>

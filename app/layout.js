@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
       }}
     >
       <html lang="en" suppressHydrationWarning>
-        <body className={`${outfit.className} animated-dotted-background`}>
+        <body className={`${outfit.className}`}>
           <Provider>
             <main className="min-h-screen">
               <ThemeProvider
