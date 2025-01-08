@@ -22,16 +22,6 @@ Learnify is a modern Learning Management System (LMS) SaaS application designed 
 - [Clerk](https://clerk.dev/)
 - [Gemini AI](https://gemini.ai/)
 
-## Getting Started
-
-### Prerequisites
-
-- Node.js and npm installed on your machine.
-- A Stripe account for payment processing.
-- API keys for Clerk, Neon, and Gemini AI.
-
-### Installation
-
 1. Clone the repository:
    ```bash
    git clone https://github.com/Dhruba2004/Learnify.git
