@@ -21,9 +21,3 @@ Learnify is a modern Learning Management System (LMS) SaaS application designed 
 - [Neon](https://neon.tech/)
 - [Clerk](https://clerk.dev/)
 - [Gemini AI](https://gemini.ai/)
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Dhruba2004/Learnify.git
-   cd Learnify
-
