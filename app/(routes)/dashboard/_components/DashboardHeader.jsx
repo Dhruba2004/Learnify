@@ -1,5 +1,4 @@
 "use client"
-import { Button } from "@/app/components/ui/button";
 import { UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,10 +9,10 @@ function DashboardHeader() {
     const router = useRouter()
   return (
     <div className="p-4 shadow-md flex items-center justify-between border-b">
-      <div className="flex items-center" onClick={()=>router.back()}>
-        <Link href={'/home'}><Image src={"/logo.svg"} width={40} height={40} alt="logo" /></Link>
+      {/* <div className="flex items-center" onClick={()=>router.back()}> */}
+        <Link href={'/'}><Image src={"/logo.svg"} width={40} height={40} alt="logo" /></Link>
         {/* <Button className="text-white">Go Back</Button> */}
-      </div>
+      {/* </div> */}
       <UserButton
         appearance={{
           elements: {
