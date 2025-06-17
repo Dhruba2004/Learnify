@@ -27,5 +27,5 @@ export async function POST(req) {
     cancel_url: process.env.HOST_URL,
   });
 
-  return NextResponse.json({ session});
+  return NextResponse.json({ url : session.url});
 }
