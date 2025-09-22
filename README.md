@@ -13,11 +13,24 @@ Learnify is a modern Learning Management System (LMS) SaaS application designed 
 
 ## Technologies Used
 
-- [Next.js](https://nextjs.org/)
-- [React](https://reactjs.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Stripe](https://stripe.com/)
-- [Inngest](https://www.inngest.com/)
-- [Neon](https://neon.tech/)
-- [Clerk](https://clerk.dev/)
-- [Gemini AI](https://gemini.ai/)
+- **Frontend**
+  - Next.js (React framework)
+  - Tailwind CSS (styling)
+
+- **Backend / Serverless**
+  - Inngest (serverless workflows)
+  - Neon (database / data management)
+
+- **Authentication & User Management**
+  - Clerk
+
+- **Payments / Subscription**
+  - Stripe
+
+- **AI Integration**
+  - Gemini AI
+
+- **Containerization & Deployment**
+  - Docker (containerization)
+  - Docker Compose (multi-container orchestration)
+
